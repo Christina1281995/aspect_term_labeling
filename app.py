@@ -236,8 +236,10 @@ else:
 
             with tab1:              # Tab 1: Annotations     
 
-                st.write("Tweet Nr " + tw_nr)
-                st.subheader({text})
+                st.write("Tweet Nr. " + tw_nr)
+                st.write(" ")
+                st.write({text})
+                st.write(" ")
 
 
                 # Annotations Form
