@@ -11,7 +11,6 @@ import json
 from datetime import datetime
 import time
 import pytz
-from emotions_map import EMOTION_DICT
 
 
 st.markdown("""
