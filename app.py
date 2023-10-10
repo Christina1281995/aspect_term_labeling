@@ -236,7 +236,7 @@ else:
 
             with tab1:              # Tab 1: Annotations     
 
-                st.write("Tweet Nr " + {tw_nr})
+                st.write("Tweet Nr " + tw_nr)
                 st.subheader({text})
 
 
