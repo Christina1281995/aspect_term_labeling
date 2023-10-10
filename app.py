@@ -230,12 +230,13 @@ else:
 
         if st.session_state.data_id < len(df):                                          # If we haven't reached the end of the labeling task yet
             message_id, text, source, photo_url = df.loc[st.session_state.data_id, ['message_id', 'text', 'source', 'photo_url']]       # Set labeling parameters
-        
+            tw_nr = str(st.state_session.data_id)
+
             tab1, tab2 = st.tabs(["Annotation", "Guide"])
 
             with tab1:              # Tab 1: Annotations     
 
-                st.write("Tweet Nr " + {st.session_state.data_id})
+                st.write("Tweet Nr " + {tw_nr})
                 st.subheader({text})
 
 
