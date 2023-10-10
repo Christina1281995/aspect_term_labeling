@@ -245,7 +245,7 @@ else:
                 # Annotations Form
                 with st.form(key="my_form"):  
                     
-                    st.write("Tweet " + tw_nr + " of " + len(df))                                  
+                    st.write("Tweet " + tw_nr + " of " + str(len(df)))                                  
                     # st.subheader(f"Aspect Terms") 
                     output = StTextAnnotator(text)
                     st.markdown("  ")
