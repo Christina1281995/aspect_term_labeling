@@ -238,7 +238,7 @@ else:
 
                 st.write("Tweet Nr. " + tw_nr)
                 st.write(" ")
-                st.write({text})
+                st.write(text)
                 st.write(" ")
 
 
