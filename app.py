@@ -236,18 +236,18 @@ else:
 
             with tab1:              # Tab 1: Annotations     
 
-                st.write("Tweet Nr. " + tw_nr)
-                st.write(" ")
-                st.write(text)
+                # st.write("Tweet Nr. " + tw_nr)
+                # st.write(" ")
+                # st.write(text)
                 st.write(" ")
 
 
                 # Annotations Form
-                with st.form(key="my_form"):                                    
-                    with st.container():
-                        st.subheader(f"Aspect Terms") 
-                        output = StTextAnnotator(text)
-                    st.write("---")
+                with st.form(key="my_form"):  
+                    
+                    st.write("Tweet Nr. " + tw_nr)                                  
+                    # st.subheader(f"Aspect Terms") 
+                    output = StTextAnnotator(text)
                     st.markdown("  ")
                     
                     if st.form_submit_button("Submit"):
