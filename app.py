@@ -230,7 +230,7 @@ else:
 
         if st.session_state.data_id < len(df):                                          # If we haven't reached the end of the labeling task yet
             message_id, text, source, photo_url = df.loc[st.session_state.data_id, ['message_id', 'text', 'source', 'photo_url']]       # Set labeling parameters
-            tw_nr = str(st.state_session.data_id)
+            tw_nr = str(st.session_state.data_id)
 
             tab1, tab2 = st.tabs(["Annotation", "Guide"])
 
