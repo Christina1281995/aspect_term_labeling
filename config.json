@@ -1,0 +1,23 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Group_1k",
+            "data_path": "data/first_1k.csv"
+        }, 
+
+        {
+            "id": 2,
+            "name": "Group_2k",
+            "data_path": "data/second_1k.csv"
+        },
+
+        {
+            "id": 3,
+            "name": "Group_3k",
+            "data_path": "data/third_1k.csv"
+        }
+    ],
+    "predefined": true
+
+}
