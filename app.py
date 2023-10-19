@@ -85,7 +85,7 @@ def save_results(data):
     cursor.execute(CREATE_TABLE_QUERY)              # Create a new table if it doesn't exist
 
     for row in data.to_dict(orient='records'):      # Insert the data into the table
-        insert_query = "INSERT INTO aspect_terms (id, author, data_id, message_id, text, source, aspect_terms) VALUES (DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s);"
+        insert_query = "INSERT INTO aspect_terms (id, author, data_id, message_id, text, source, aspect_terms, ambiguous, noemotion) VALUES (DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s);"
         values = (st.session_state.user_id, row['data_id'], row['message_id'], row['text'], row['source'], row['aspect_terms'], row['ambiguous'], row['noemotion'])
         cursor.execute(insert_query, values)
 
