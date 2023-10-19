@@ -85,8 +85,8 @@ def save_results(data):
     cursor.execute(CREATE_TABLE_QUERY)              # Create a new table if it doesn't exist
 
     for row in data.to_dict(orient='records'):      # Insert the data into the table
-        insert_query = "INSERT INTO aspect_terms (id, author, data_id, message_id, text, source, aspect_terms) VALUES (DEFAULT, %s, %s, %s, %s, %s, %s);"
-        values = (st.session_state.user_id, row['data_id'], row['message_id'], row['text'], row['source'], row['aspect_terms'])
+        insert_query = "INSERT INTO aspect_terms (id, author, data_id, message_id, text, source, aspect_terms) VALUES (DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s);"
+        values = (st.session_state.user_id, row['data_id'], row['message_id'], row['text'], row['source'], row['aspect_terms'], row['ambiguous'], row['noemotion'])
         cursor.execute(insert_query, values)
 
     st.session_state["data_id"] += 1                # Increment the question number for the next row
@@ -249,6 +249,24 @@ else:
                     # st.subheader(f"Aspect Terms") 
                     output = StTextAnnotator(text)
                     st.markdown("  ")
+
+                    st.write("---")
+                    st.markdown("  ")
+
+
+                    st.subheader(f"**Ambiguous**") 
+                    ambiguous = st.checkbox('Tick box if this tweet is **:red[ambiguous]** ', 
+                                              value=st.session_state.ambiguous, 
+                                              key=f"ambiguous + {str(st.session_state.data_id)} + {str(st.session_state.user_id)}")
+                    st.write("---")
+                    st.markdown("  ")
+                    
+                    st.subheader(f"**No Emotion**") 
+                    noemotion = st.checkbox('Tick box if this tweet has **:red[no emotion]** ', 
+                                              value=st.session_state.noemotion, 
+                                              key=f"noemotion + {str(st.session_state.data_id)} + {str(st.session_state.user_id)}")
+                    st.write("---")
+                    st.markdown("  ")
                     
                     if st.form_submit_button("Submit"):
                         if output:
@@ -256,8 +274,8 @@ else:
                         else:
                             aspect_terms = ''
                         
-                        data = [[st.session_state.data_id, message_id, text, source, aspect_terms]]
-                        save_results(pd.DataFrame(data, columns=["data_id", "message_id", "text", "source", "aspect_terms"]))
+                        data = [[st.session_state.data_id, message_id, text, source, aspect_terms, ambiguous, noemotion]]
+                        save_results(pd.DataFrame(data, columns=["data_id", "message_id", "text", "source", "aspect_terms", "ambiguous", "noemotion"]))
                         
                         reset_form()
                         st.experimental_rerun()
