@@ -165,8 +165,8 @@ st.title('Aspect Term Labeling')
 # Initialize session state
 if "start" not in st.session_state:
     st.session_state["start"] = False
-if "irrelevance" not in st.session_state:
-    st.session_state.irrelevance = False
+if "defaultval" not in st.session_state:
+    st.session_state.defaultval = False
 if "emotion" not in st.session_state:
     st.session_state.emotion = 4
 
@@ -256,14 +256,14 @@ else:
 
                     st.subheader(f"**Ambiguous**") 
                     ambiguous = st.checkbox('Tick box if this tweet is **:red[ambiguous]** ', 
-                                              value=st.session_state.ambiguous, 
+                                              value=st.session_state.defaultval, 
                                               key=f"ambiguous + {str(st.session_state.data_id)} + {str(st.session_state.user_id)}")
                     st.write("---")
                     st.markdown("  ")
                     
                     st.subheader(f"**No Emotion**") 
                     noemotion = st.checkbox('Tick box if this tweet has **:red[no emotion]** ', 
-                                              value=st.session_state.noemotion, 
+                                              value=st.session_state.defaultval, 
                                               key=f"noemotion + {str(st.session_state.data_id)} + {str(st.session_state.user_id)}")
                     st.write("---")
                     st.markdown("  ")
